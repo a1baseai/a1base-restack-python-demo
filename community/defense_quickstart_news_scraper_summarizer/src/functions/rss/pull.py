@@ -1,5 +1,5 @@
 import requests
-import xml.etree.ElementTree as ET
+import defusedxml.ElementTree as ET
 from restack_ai.function import function, log
 
 from .schema import RssInput
