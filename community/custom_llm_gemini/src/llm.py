@@ -81,7 +81,7 @@ def test_route():
     return "Test route is working", 200
     
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run()
 
 def run_llm():
-    app.run(debug=True, host='0.0.0.0', port=1337)
+    app.run(host='0.0.0.0', port=1337)

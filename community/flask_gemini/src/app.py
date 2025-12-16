@@ -48,7 +48,7 @@ async def schedule_workflow():
 
 
 def run_flask():
-    app.run(debug=True) 
+    app.run()
 
 if __name__ == '__main__':
     run_flask()
