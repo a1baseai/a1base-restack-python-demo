@@ -36,7 +36,7 @@ async def schedule_workflow():
         return jsonify({'error': 'Request must be JSON'}), 400
 
 def run_flask():
-    app.run(debug=True) 
+    app.run()
 
 if __name__ == '__main__':
     run_flask() 
