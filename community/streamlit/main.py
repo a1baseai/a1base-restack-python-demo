@@ -2,6 +2,7 @@ import streamlit as st
 import asyncio
 from restack_ai import Restack
 import logging
+import json
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
@@ -39,7 +40,11 @@ if st.button("Trigger Workflow"):
     if not workflow_name or not workflow_id:
         st.error("Workflow name and ID are required.")
     else:
-        input_dict = eval(input_data) if input_data else {}
+        try:
+            input_dict = json.loads(input_data) if input_data else {}
+        except json.JSONDecodeError as e:
+            st.error(f"Invalid JSON format: {str(e)}")
+            st.stop()
         run_id = asyncio.run(trigger_workflow(workflow_name, workflow_id, input_dict))
         
         # Log the input data
